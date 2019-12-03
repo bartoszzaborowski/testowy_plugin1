@@ -1,1 +1,19 @@
-<h2>TestowyPlugin1Controller#index</h2>
+<h2>TestowyPlugin1Controllerindex</h2>
+<table style = "border:none">
+
+<% $users.each do |user|%>
+    <% if user.status ==1 %>
+        <% color = ' color:red' %>    
+    <% else %>
+        <% color = nil %> 
+    <% end %>    
+    <tr>
+    <td style = "border:none; font-weight:bold; padding:5px 20px; <%= color %>"><center><%= user.id %></center></td>
+    <td style = "border:none; font-weight:bold; padding:5px 20px; <%= color %>"><center><%= user.login %></center></td>
+    <td style = "border:none; font-weight:bold; padding:5px 20px; <%= color %>"><center><%= user.firstname %></center></td>
+    <td style = "border:none; font-weight:bold; padding:5px 20px; <%= color %>"><center><%= user.lastname %></center></td>
+    <td style = "border:none; font-weight:bold; padding:5px 20px; <%= color %>"><center><%= user.status %></center></td>
+    </tr>
+
+    <% end %>
+</table>
