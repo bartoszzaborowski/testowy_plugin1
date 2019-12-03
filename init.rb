@@ -7,4 +7,5 @@ Redmine::Plugin.register :testowy_plugin1 do
   author_url 'http://example.com/about'
   permission :testowy_plugin1, { :testowy_plugin1 => [:index] }, :public => true
   menu :project_menu, :testowy_plugin1, { :controller => 'testowy_plugin1', :action => 'index' }, :caption => 'Testowy', :after => :activity, :param => :project_id
+
 end
