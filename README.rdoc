@@ -1,0 +1,3 @@
+= testowy_plugin1
+
+Description goes here
