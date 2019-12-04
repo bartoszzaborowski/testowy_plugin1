@@ -1,19 +1,34 @@
 <h2>TestowyPlugin1Controllerindex</h2>
+
+
 <table style = "border:none">
-
-<% $users.each do |user|%>
-    <% if user.status ==1 %>
-        <% color = ' color:red' %>    
-    <% else %>
-        <% color = nil %> 
-    <% end %>    
-    <tr>
-    <td style = "border:none; font-weight:bold; padding:5px 20px; <%= color %>"><center><%= user.id %></center></td>
-    <td style = "border:none; font-weight:bold; padding:5px 20px; <%= color %>"><center><%= user.login %></center></td>
-    <td style = "border:none; font-weight:bold; padding:5px 20px; <%= color %>"><center><%= user.firstname %></center></td>
-    <td style = "border:none; font-weight:bold; padding:5px 20px; <%= color %>"><center><%= user.lastname %></center></td>
-    <td style = "border:none; font-weight:bold; padding:5px 20px; <%= color %>"><center><%= user.status %></center></td>
+<tr>
+    <td style = "border:none; font-weight:bold; padding:5px 20px; "><center>id</center></td>
+    <td style = "border:none; font-weight:bold; padding:5px 20px; "><center>person</center></td>
+    <td style = "border:none; font-weight:bold; padding:5px 20px; "><center>subject</center></td>
+    <td style = "border:none; font-weight:bold; padding:5px 20px; "><center>description</center></td>
+    <td style = "border:none; font-weight:bold; padding:5px 20px; "><center>severity</center></td>
+   
     </tr>
-
+    <tr>
+    <td colspan=5><center><hr></center></td>
+    
+   
+    </tr>
+<% for i in 0..@issueslist.size-1 do%>
+    <% if @issueslist[i]['priority'] == 'immediate'%>
+        <% color = ' color:red; font-weight:bold;'%>
+    <% else %>
+        <% color = nil %>
     <% end %>
+    <tr>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= @issueslist[i]['id']%></center></td>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= @issueslist[i]['mail']%></center></td>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= @issueslist[i]['subject']%></center></td>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= @issueslist[i]['descript']%></center></td>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= @issueslist[i]['priority']%></center></td>
+   
+    </tr>
+<% end %>
+   
 </table>
