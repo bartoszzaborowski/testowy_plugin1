@@ -16,19 +16,7 @@
    
     </tr>
 <% @allissues.each do |issue|%>
-    <% if issue.priority_id ==5 %>
-        <% priority = 'immediate' %>
-    <% elsif issue.priority_id ==4 %>
-        <% priority = 'urgent'%>
-    <% elsif issue.priority_id ==3 %>
-        <% priority = 'high'%>
-    <% elsif issue.priority_id ==2 %>
-        <% priority = 'normal'%>
-    <% elsif issue.priority_id ==1 %>
-        <% priority = 'low' %>
-    <% end %>
-    
-    <% if priority == 'immediate'%>
+    <% if issue.priority_id == 5%>
         <% color = ' color:red; font-weight:bold;'%>
     <% else %>
         <% color = nil %>
@@ -36,10 +24,10 @@
     
     <tr>
     <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= issue.id %></center></td>
-    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= issue.author %></center></td>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= issue.author.mail %></center></td>
     <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= issue.subject %></center></td>
     <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= issue.description%></center></td>
-    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= priority %></center></td>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= issue.priority %></center></td>
    
     </tr>
 <% end %>
