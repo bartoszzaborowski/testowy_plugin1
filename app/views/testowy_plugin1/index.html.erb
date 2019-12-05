@@ -15,18 +15,31 @@
     
    
     </tr>
-<% for i in 0..@issueslist.size-1 do%>
-    <% if @issueslist[i]['priority'] == 'immediate'%>
+<% @allissues.each do |issue|%>
+    <% if issue.priority_id ==5 %>
+        <% priority = 'immediate' %>
+    <% elsif issue.priority_id ==4 %>
+        <% priority = 'urgent'%>
+    <% elsif issue.priority_id ==3 %>
+        <% priority = 'high'%>
+    <% elsif issue.priority_id ==2 %>
+        <% priority = 'normal'%>
+    <% elsif issue.priority_id ==1 %>
+        <% priority = 'low' %>
+    <% end %>
+    
+    <% if priority == 'immediate'%>
         <% color = ' color:red; font-weight:bold;'%>
     <% else %>
         <% color = nil %>
     <% end %>
+    
     <tr>
-    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= @issueslist[i]['id']%></center></td>
-    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= @issueslist[i]['mail']%></center></td>
-    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= @issueslist[i]['subject']%></center></td>
-    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= @issueslist[i]['descript']%></center></td>
-    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= @issueslist[i]['priority']%></center></td>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= issue.id %></center></td>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= issue.author %></center></td>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= issue.subject %></center></td>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= issue.description%></center></td>
+    <td style = "border:none; padding:5px 20px; <%= color %>"><center><%= priority %></center></td>
    
     </tr>
 <% end %>
